@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: 04. Sep, 2019 22:51 PM
+-- Generation Time: 05. Sep, 2019 20:04 PM
 -- Server-versjon: 10.1.38-MariaDB-0ubuntu0.18.04.1
 -- PHP Version: 7.2.19-0ubuntu0.18.04.1
 
@@ -95,9 +95,9 @@ CREATE TABLE `products` (
 
 CREATE TABLE `reviews` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `product_id` int(10) UNSIGNED NOT NULL,
-  `customer` int(11) NOT NULL,
-  `review` int(11) NOT NULL,
+  `product_id` bigint(20) UNSIGNED NOT NULL,
+  `customer` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `review` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `star` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -191,6 +191,16 @@ ALTER TABLE `reviews`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- Begrensninger for dumpede tabeller
+--
+
+--
+-- Begrensninger for tabell `reviews`
+--
+ALTER TABLE `reviews`
+  ADD CONSTRAINT `reviews_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
