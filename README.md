@@ -38,9 +38,18 @@ Ch8
 
 Ch9
 ===
-- extending ProductResoure (review-link, rating, totalPrice)
+- modify ProductResoure (single rec) (add review-link, rating, totalPrice)
 - reviews link for a given product
-- ProductResource : add to toArray() :
+- ProductResource :
   'href' => [
      'reviews' => route('reviews.index', $this->id)
   ]
+
+Ch10
+====
+- modify ProductCollection (multiple recs)
+- change ProductCollection class to extend Resource as single rec
+- change ProductController from :
+  return Product::all();
+  to :
+  return ProductResource::collection((Product::all()));
