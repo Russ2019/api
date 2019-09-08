@@ -35,3 +35,12 @@ Ch8
 - localhost:8000/api/products
 - php artisan make:resource Product/ProductResource
 - ProductController : show() return resource (transformed single rec)
+
+Ch9
+===
+- extending ProductResoure (review-link, rating, totalPrice)
+- reviews link for a given product
+- ProductResource : add to toArray() :
+  'href' => [
+     'reviews' => route('reviews.index', $this->id)
+  ]
