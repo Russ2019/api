@@ -25,3 +25,13 @@ Ch7
 - Database Seeded
 - ..database/DatabaseSeeder.php
 - php artisan DB:seed
+
+Ch8
+- created relationships on models (Product, Review)
+- ProductCollection & ProductResource
+- separated out folder : Product
+- php artisan make:resource Product/ProductCollection
+- ProductController : index() return collection (multiple recs)
+- localhost:8000/api/products
+- php artisan make:resource Product/ProductResource
+- ProductController : show() return resource (transformed single rec)
