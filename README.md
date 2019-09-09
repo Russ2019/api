@@ -47,9 +47,4 @@ Ch9
 
 Ch10
 ====
-- modify ProductCollection (multiple recs)
-- change ProductCollection class to extend Resource as single rec
-- change ProductController from :
-  return Product::all();
-  to :
-  return ProductResource::collection((Product::all()));
+- OVERHAUL
